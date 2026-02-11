@@ -1,7 +1,4 @@
-# Conditional Statements Assignment
-# This program demonstrates if, elif, else, comparison operators, and logical operators
 
-# Latte purchase example
 money = float(input("Enter the amount of money you have (€): "))
 
 if money >= 5:
@@ -9,9 +6,7 @@ if money >= 5:
 else:
     print("You do not have enough money to buy a latte.")
 
-print()  # empty line for readability
-
-# Medicine eligibility example
+print()
 age = int(input("Enter age: "))
 
 if 15 <= age < 18:
