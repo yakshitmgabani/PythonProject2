@@ -1,103 +1,59 @@
-# ----------------------------------------
-# WHILE LOOP ASSIGNMENT
-# ----------------------------------------
+# 1) Zander size check
+length = int(input("Enter the length of the zander (cm): "))
+size_limit = 42
 
-# Example 1: Fixed amount of repetitions
-print("Example 1: Fixed number of greetings")
-
-rounds = int(input("How many greetings: "))
-finished_rounds = 0
-
-while finished_rounds < rounds:
-    print("Good morning")
-    finished_rounds = finished_rounds + 1
-
-print("----------------------------------------")
-
-
-# Example 2: User ends the repetition
-print("Example 2: User controlled loop")
-
-command = input("Enter command: ")
-
-while command != "stop":
-    print("Executing command:", command)
-    command = input("Enter command: ")
-
-print("Execution stopped.")
-print("----------------------------------------")
-
-
-# Example 3: Dice rolling simulation
-print("Example 3: Dice rolling until double six")
-
-import random
-
-dice1 = 0
-dice2 = 0
-rolls = 0
-
-while dice1 != 6 or dice2 != 6:
-    dice1 = random.randint(1, 6)
-    dice2 = random.randint(1, 6)
-    rolls = rolls + 1
-
-print("Rolled", rolls, "times.")
-print("----------------------------------------")
-
-
-# Example 4: Nested while loops (multiplication table)
-print("Example 4: Multiplication table (1 to 5)")
-
-first = 1
-while first <= 5:
-    second = 1
-    while second <= 5:
-        print(f"{first} times {second} is {first * second}")
-        second = second + 1
-    first = first + 1
-
-print("----------------------------------------")
-
-
-# Example 5: Using break statement
-print("Example 5: break statement")
-
-command = input("Enter command: ")
-
-while command != "stop":
-    if command == "MAYDAY":
-        break
-    print("Executing command:", command)
-    command = input("Enter command: ")
-
-print("Execution stopped.")
-print("----------------------------------------")
-
-
-# Example 6: while / else
-print("Example 6: while / else")
-
-command = input("Enter command: ")
-
-while command != "stop":
-    if command == "MAYDAY":
-        break
-    print("Executing command:", command)
-    command = input("Enter command: ")
+if length < size_limit:
+    difference = size_limit - length
+    print("The zander is too small. Release it back into the lake.")
+    print(f"It is {difference} cm below the size limit.")
 else:
-    print("Goodbye.")
+    print("The zander meets the size limit.")
 
-print("Execution stopped.")
-print("----------------------------------------")
+print()  # empty line for readability
 
+# 2) Cruise ship cabin class description
+cabin_class = input("Enter cabin class (LUX, A, B, C): ").upper()
 
-# Example 7: Corrected infinite loop example
-print("Example 7: Avoiding infinite loop")
+if cabin_class == "LUX":
+    print("Upper-deck cabin with a balcony.")
+elif cabin_class == "A":
+    print("Above the car deck, equipped with a window.")
+elif cabin_class == "B":
+    print("Windowless cabin above the car deck.")
+elif cabin_class == "C":
+    print("Windowless cabin below the car deck.")
+else:
+    print("Invalid cabin class.")
 
-number = 1
-while number < 5:
-    print(number)
-    number = number + 1
+print()
 
-print("All ready.")
+# 3) Hemoglobin level check
+gender = input("Enter biological gender (female/male): ").lower()
+hemoglobin = int(input("Enter hemoglobin value (g/l): "))
+
+if gender == "female":
+    if hemoglobin < 117:
+        print("Hemoglobin level is low.")
+    elif hemoglobin <= 155:
+        print("Hemoglobin level is normal.")
+    else:
+        print("Hemoglobin level is high.")
+elif gender == "male":
+    if hemoglobin < 134:
+        print("Hemoglobin level is low.")
+    elif hemoglobin <= 167:
+        print("Hemoglobin level is normal.")
+    else:
+        print("Hemoglobin level is high.")
+else:
+    print("Invalid gender.")
+
+print()
+
+# 4) Leap year checker
+year = int(input("Enter a year: "))
+
+if (year % 4 == 0 and year % 100 != 0) or (year % 400 == 0):
+    print("The year is a leap year.")
+else:
+    print("The year is not a leap year.")
