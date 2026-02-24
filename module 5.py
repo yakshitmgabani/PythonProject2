@@ -1,106 +1,76 @@
-"""
-List Structures and Iterative Loop Structures (for)
-Assignment demonstration
+import random
 
-Covers:
-1. Creating lists
-2. Indexing and slicing
-3. List length
-4. Index out of range example (commented)
-5. List operations
-6. Iterating through lists with for loop
-7. range() function usage
-"""
+while True:
+    print("\n=== LISTS & FOR-LOOP PROGRAMS MENU ===")
+    print("1. Roll dice and print the sum")
+    print("2. Print five greatest numbers (descending)")
+    print("3. Check if a number is prime")
+    print("4. Enter and print five city names")
+    print("0. Exit")
 
+    choice = input("Choose a program (0–4): ")
 
-# --------------------------------------------------
-# 1. Creating a list
-# --------------------------------------------------
-names = ["Viivi", "Ahmed", "Pekka", "Olga", "Mary"]
+    # 1. Dice rolling
+    if choice == "1":
+        dice_count = int(input("How many dice to roll? "))
+        total = 0
 
-print("Original list:")
-print(names)
+        for _ in range(dice_count):
+            roll = random.randint(1, 6)
+            total += roll
 
+        print("Sum of dice:", total)
 
-# --------------------------------------------------
-# 2. Indexing and slicing
-# --------------------------------------------------
-print("\nIndexing examples:")
-print(names[3])      # Olga
-print(names[1])      # Ahmed
-print(names[-2])     # Olga
+    # 2. Five greatest numbers
+    elif choice == "2":
+        numbers = []
 
-print("\nSlicing examples:")
-print(names[1:3])    # ['Ahmed', 'Pekka']
-print(names[2:])     # ['Pekka', 'Olga', 'Mary']
+        while True:
+            value = input("Enter a number (empty to quit): ")
+            if value == "":
+                break
+            numbers.append(float(value))
 
+        numbers.sort(reverse=True)
 
-# --------------------------------------------------
-# 3. Length of list
-# --------------------------------------------------
-print("\nLength of list:")
-print(len(names))
+        print("Five greatest numbers:")
+        for num in numbers[:5]:
+            print(num)
 
+    # 3. Prime number check
+    elif choice == "3":
+        number = int(input("Enter an integer: "))
 
-# --------------------------------------------------
-# 4. Index out of range example (DO NOT RUN)
-# --------------------------------------------------
-"""
-print(names[5])  # IndexError: list index out of range
-"""
+        if number < 2:
+            print(number, "is not a prime number")
+        else:
+            is_prime = True
+            for i in range(2, number):
+                if number % i == 0:
+                    is_prime = False
+                    break
 
+            if is_prime:
+                print(number, "is a prime number")
+            else:
+                print(number, "is not a prime number")
 
-# --------------------------------------------------
-# 5. List operations
-# --------------------------------------------------
-print("\nList operations:")
+    # 4. City names list
+    elif choice == "4":
+        cities = []
 
-names.append("Matti")
-print("After append:", names)
+        for i in range(5):
+            city = input(f"Enter city {i + 1}: ")
+            cities.append(city)
 
-names.insert(2, "Teppo")
-print("After insert:", names)
+        print("\nCities entered:")
+        for city in cities:
+            print(city)
 
-names.remove("Ahmed")
-print("After remove:", names)
+    # Exit
+    elif choice == "0":
+        print("Goodbye!")
+        break
 
-other_names = ["Allu", "Ninni"]
-names.extend(other_names)
-print("After extend:", names)
-
-if "Olga" in names:
-    print("Olga found in list")
-
-print("Index of Pekka:", names.index("Pekka"))
-
-names.sort()
-print("After sort:", names)
-
-
-# --------------------------------------------------
-# 6. User input list + for loop iteration
-# --------------------------------------------------
-print("\nEnter names (press Enter to stop):")
-
-user_names = []
-name = input("Enter name: ")
-
-while name != "":
-    user_names.append(name)
-    name = input("Enter name: ")
-
-print("\nGreeting all users:")
-for n in user_names:
-    print(f"Hello, {n}!")
-
-
-# --------------------------------------------------
-# 7. for loop with range()
-# --------------------------------------------------
-print("\nNumbers divisible by 3 from 3 to 30:")
-for number in range(3, 31, 3):
-    print(number)
-
-print("\nPrint Hello 6 times:")
-for i in range(6):
-    print("Hello!")
+    else:
+        print("Invalid choice. Try again.")
